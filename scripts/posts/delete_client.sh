@@ -9,8 +9,8 @@
 #
 #
 # curl --include --request DELETE "http://localhost:4741/clients/${ID}"
-curl --include --request DELETE "http://localhost:4741/clients/${ID}" \
---header "Authorization: Token token=BAhJIiUzMWVmNjdlODU0ZjliZThjOTcwOTNjYWIyM2E1ZjE4NgY6BkVG--5ad8ceb93090381cc0e7395c57ed070764541639" \
+curl --include --request DELETE "http://localhost:4741/posts/${ID}" \
+--header "Authorization: Token token=BAhJIiVhMDc1Y2I1ODM3NGIyYmY5NTM1ZWY4NDE1ZjBkZjgzMwY6BkVG--1172a7410c88242a129cd3cf0c173794386a5dc2" \
 --header "Content-Type: application/json" \
 
 

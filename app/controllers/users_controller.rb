@@ -24,25 +24,24 @@ class UsersController < ProtectedController
     end
   end
 
-  # DELETE '/sign-out'
+  # DELETE '/sign-out/1'
   def signout
-    current_user.logout
-    head :no_content
+    if current_user == User.find(params[:id])
+      current_user.logout
+      head :no_content
+    else
+      head :unauthorized
+    end
   end
 
   # PATCH '/change-password/:id'
   def changepw
-    # if the the old password authenticates,
-    # the new one is not blank,
-    # and the model saves
-    # then 204
-    # else 400
-    if current_user.authenticate(pw_creds[:old]) &&
-       !(current_user.password = pw_creds[:new]).blank? &&
-       current_user.save
-      head :no_content
-    else
+    if !current_user.authenticate(pw_creds[:old]) ||
+       (current_user.password = pw_creds[:new]).blank? ||
+       !current_user.save
       head :bad_request
+    else
+      head :no_content
     end
   end
 

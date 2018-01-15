@@ -1,14 +1,15 @@
 #!/bin/bash
 
-curl --include --request PATCH "http://localhost:4741/clients/${ID}" \
---header "Authorization: Token token=BAhJIiUzMWVmNjdlODU0ZjliZThjOTcwOTNjYWIyM2E1ZjE4NgY6BkVG--5ad8ceb93090381cc0e7395c57ed070764541639" \
+curl --include --request PATCH "http://localhost:4741/posts/${ID}" \
+--header "Authorization: Token token=BAhJIiU5YjFkMmRlNzRmNGZjZGRhMWI5MTc2ZmRlZWRhOGNlMgY6BkVG--4b5b99945b54c8d02815b11a4315210ef16fa4a2" \
 --header "Content-Type: application/json" \
 --data '{
-    "client": {
+    "post": {
       "first_name": "'"${FIRST}"'",
       "last_name": "'"${LAST}"'",
-      "email": "'"${EMAIL}"'"
+      "message": "'"${MESS}"'",
+      "url": "'"${URL}"'",
+      "year": "'"${YEAR}"'"
     }
 }'
-
 echo

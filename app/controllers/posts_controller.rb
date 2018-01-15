@@ -3,7 +3,7 @@ class PostsController < ProtectedController
 
   # GET /posts
   def index
-    @posts = current_user.posts.all
+    @posts = Post.all
 
     render json: @posts
   end
@@ -46,6 +46,6 @@ class PostsController < ProtectedController
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:first_name, :last_name, :message, :url, :year)
+      params.require(:post).permit(:first_name, :last_name, :message, :url, :year, :created_at, :title)
     end
 end

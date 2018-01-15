@@ -2,7 +2,6 @@
 
 Rails.application.routes.draw do
   resources :posts, except: %i[new edit]
-  resources :posts, except: %i[new edit]
   resources :examples, except: %i[new edit]
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'

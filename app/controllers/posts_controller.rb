@@ -1,5 +1,5 @@
-class PostsController < ProtectedController
-  before_action :set_post, only: [:show, :update, :destroy]
+class PostsController < OpenReadController
+  before_action :set_post, except: [:index]
 
   # GET /posts
   def index
@@ -46,6 +46,6 @@ class PostsController < ProtectedController
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:first_name, :last_name, :message, :url, :year, :created_at, :title)
+      params.require(:post).permit(:first_name, :last_name, :message, :url, :year, :title)
     end
 end

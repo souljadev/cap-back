@@ -3,8 +3,11 @@ class PostsController < OpenReadController
 
   # GET /posts
   def index
-    @posts = Post.all
-
+    if params[:filter]
+      @posts = Post.where('user_id' => params[:filter][:user_id])
+    else
+      @posts = Post.all
+    end
     render json: @posts
   end
 

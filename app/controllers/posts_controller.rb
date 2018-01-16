@@ -1,5 +1,5 @@
 class PostsController < OpenReadController
-  before_action :set_post, except: [:index]
+  before_action :set_post, only: [:show, :update, :destroy]
 
   # GET /posts
   def index

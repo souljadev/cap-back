@@ -24,9 +24,9 @@ class UsersController < ProtectedController
     end
   end
 
-  # DELETE '/sign-out/1'
+  # DELETE '/sign-out/
   def signout
-    if current_user == User.find(params[:id])
+    if current_user
       current_user.logout
       head :no_content
     else

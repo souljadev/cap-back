@@ -1,4 +1,4 @@
-class PostsController < OpenReadController
+class PostsController < ProtectedController
   before_action :set_post, only: [:show, :update, :destroy]
 
   # GET /posts

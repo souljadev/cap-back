@@ -4,9 +4,9 @@ class PostsController < ProtectedController
   # GET /posts
   def index
     if params[:filter]
-      @posts = Post.where('user_id' => params[:filter][:user_id])
+      @posts = current_user.posts.where('user_id' => params[:filter][:user_id])
     else
-      @posts = Post.all
+      @posts = current_user.posts.all
     end
     render json: @posts
   end
